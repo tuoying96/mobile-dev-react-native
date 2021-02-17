@@ -1,12 +1,12 @@
 import React from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import Challenge3Component from "./components/Challenge3Component";
+import Challenge4Component from "./components/Challenge4Component";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Challenge3Component />
+      <Challenge4Component />
     </View>
   );
 }

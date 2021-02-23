@@ -3,7 +3,7 @@
 import React from "react";
 import { withGesture } from "react-with-gesture";
 import { Spring, animated } from "react-spring/renderprops";
-import "./styles.css";
+// import "./styles.css";
 
 class GesturesExample extends React.Component {
   render() {

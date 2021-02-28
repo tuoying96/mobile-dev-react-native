@@ -42,6 +42,7 @@ class ButtonComponent extends Component {
       <View>
         <ScrollView
           ref={(ref) => (this.ScrollView = ref)} //什么逻辑？
+          // Hi Professor, could you please give us more explaination of `ref={(ref) => (this.ScrollView = ref)}`? I googled it but I am not quite understand the logic/syntax of this code.
           contentContainerStyle={{ padding: 30 }}
           // horizontal={true}
           onContentSizeChange={(contenWidth, contenHeight) => {

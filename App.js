@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
-// import Challenge4Component from "./components/Challenge4Component";
+import Challenge5Component from "./components/Challenge5Component";
 import TouchableComponent from "./components/TouchableComponent";
 import ButtonComponent from "./components/ButtonComponent";
 import Spring0 from "./spring/Spring0.js";
@@ -13,7 +13,7 @@ export default function App() {
     <View style={styles.container}>
       {/* <Spring3 /> */}
       {/* <TouchableComponent /> */}
-      <ButtonComponent />
+      <Challenge5Component />
     </View>
   );
 }

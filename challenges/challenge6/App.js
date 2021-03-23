@@ -6,9 +6,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import "react-native-gesture-handler";
 
 import HomeScreen from "./challenges/challenge6/HomeScreen";
-import SecondScreen from "./challenges/challenge6/SecondScreen";
-import ThirdScreen from "./challenges/challenge6/ThirdScreen";
-import ModalScreen from "./challenges/challenge6/ModalScreen";
 
 const Stack = createStackNavigator();
 

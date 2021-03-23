@@ -5,11 +5,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import "react-native-gesture-handler";
 
-// import Challenge5Component from "./components/Challenge5Component";
-import HomeScreen from "./challenges/challenge6/HomeScreen";
-import SecondScreen from "./challenges/challenge6/SecondScreen";
-import ThirdScreen from "./challenges/challenge6/ThirdScreen";
-import ModalScreen from "./challenges/challenge6/ModalScreen";
+import ImagePickerComponent from "./components/camera/ImagePickerComponent";
+import FlatListComponent from "./components/camera/FlatListComponent";
+import FetchComponent from "./components/camera/FetchComponent";
 
 // import Spring0 from "./spring/Spring0.js";
 // import Spring1 from "./spring/Spring1.js";
@@ -29,20 +27,25 @@ const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    // <View style={styles.container}>
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={HomeScreen.navigationOptions}
-        />
-        <Stack.Screen name="Second" component={SecondScreen} />
-        <Stack.Screen name="Third" component={ThirdScreen} />
-        <Stack.Screen name="Modal" component={ModalScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-    // </View>
+    <View style={styles.container}>
+      <ImagePickerComponent />
+      <FlatListComponent />
+      <FetchComponent />
+    </View>
+
+    // routing
+    // <NavigationContainer>
+    //   <Stack.Navigator>
+    //     <Stack.Screen
+    //       name="Home"
+    //       component={HomeScreen}
+    //       options={HomeScreen.navigationOptions}
+    //     />
+    //     <Stack.Screen name="Second" component={SecondScreen} />
+    //     <Stack.Screen name="Third" component={ThirdScreen} />
+    //     <Stack.Screen name="Modal" component={ModalScreen} />
+    //   </Stack.Navigator>
+    // </NavigationContainer>
   );
 }
 

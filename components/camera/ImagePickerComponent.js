@@ -67,7 +67,8 @@ export default class ImagePickerComponent extends Component {
 
   handleFacesDetected = async ({ faces }) => {
     console.log("@faces", faces);
-    if (faces.lenth > 0) {
+    console.log(faces.length);
+    if (faces.length > 0) {
       this.setState({
         faceDetected: true,
       });
@@ -78,7 +79,7 @@ export default class ImagePickerComponent extends Component {
   shootIt = async () => {
     let photo = await this.camera.takePictureAsync();
     this.setState({
-      isCameraVisible: false.valueOf,
+      isCameraVisible: false,
       image: photo.uri,
     });
   };

@@ -14,13 +14,15 @@
     "@react-navigation/native": "^5.9.3",
     "@react-navigation/stack": "^5.14.3",
     "@vx/gradient": "0.0.199",
-    "expo": "~40.0.0",
+    "expo": "^40.0.1",
     "expo-camera": "^10.0.0",
     "expo-constants": "^10.0.1",
+    "expo-face-detector": "^8.4.0",
     "expo-image-picker": "^10.0.0",
     "expo-permissions": "^11.0.0",
     "expo-status-bar": "~1.0.3",
     "flubber": "^0.4.2",
+    "install": "^0.13.0",
     "lodash-es": "^4.17.21",
     "lodash-move": "^1.1.1",
     "react": "16.13.1",
@@ -38,8 +40,7 @@
     "react-use-gesture": "^9.0.4",
     "react-with-gesture": "^4.0.8",
     "resize-observer-polyfill": "^1.5.1",
-    "vec-la": "^1.5.0",
-    "expo-face-detector": "~8.4.0"
+    "vec-la": "^1.5.0"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"

@@ -8,6 +8,7 @@ import "react-native-gesture-handler";
 import ImagePickerComponent from "./components/camera/ImagePickerComponent";
 import FlatListComponent from "./components/camera/FlatListComponent";
 import FetchComponent from "./components/camera/FetchComponent";
+import Challenge7Component from "./challenges/challenge7/Challenge7Component";
 
 // import Spring0 from "./spring/Spring0.js";
 // import Spring1 from "./spring/Spring1.js";
@@ -28,9 +29,9 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <View style={styles.container}>
-      <ImagePickerComponent />
-      <FlatListComponent />
-      <FetchComponent />
+      <Challenge7Component />
+      {/* <FlatListComponent />
+      <FetchComponent /> */}
     </View>
 
     // routing

@@ -10,6 +10,10 @@ import FlatListComponent from "./components/camera/FlatListComponent";
 import FetchComponent from "./components/camera/FetchComponent";
 import Challenge7Component from "./challenges/challenge7/Challenge7Component";
 
+import GPSComponent from "./components/gps/GPSComponent";
+import MapComponent from "./components/gps/MapComponent";
+import Challenge8Component from "./challenges/challenge8/Challenge8Component";
+
 // import Spring0 from "./spring/Spring0.js";
 // import Spring1 from "./spring/Spring1.js";
 // import Spring2 from "./spring/Spring2/Spring2.js";
@@ -29,7 +33,8 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <View style={styles.container}>
-      <Challenge7Component />
+      <Challenge8Component />
+      {/* <MapComponent /> */}
       {/* <FlatListComponent />
       <FetchComponent /> */}
     </View>

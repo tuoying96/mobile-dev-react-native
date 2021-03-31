@@ -40,7 +40,9 @@
     "react-use-gesture": "^9.0.4",
     "react-with-gesture": "^4.0.8",
     "resize-observer-polyfill": "^1.5.1",
-    "vec-la": "^1.5.0"
+    "vec-la": "^1.5.0",
+    "expo-location": "~10.0.0",
+    "react-native-maps": "0.27.1"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"

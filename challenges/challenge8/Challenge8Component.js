@@ -76,89 +76,28 @@ export default class Challenge8Component extends Component {
       longitudeDelta: 0.26148553937673924,
     };
     // console.log("@newRegion", newRegion);
+    console.log("@newRegion", newRegion);
 
-    this.setState({
-      region: newRegion,
-    });
-    console.log("@newRegion", this.state.region);
+    this.map.animateToRegion(newRegion, 3000);
   }
-  btnPressAnimate() {
-    const region = this.state.region;
-    console.log(
-      this.state.exploreLatitude
-      // +
-      //   Math.random() * 10 * (region.latitudeDelta / 2)
-    );
 
+  animateExplore() {
     let inputRegion = {
-      latitude:
-        this.state.exploreLatitude +
-        Math.random() * 10 * (this.state.region.latitudeDelta / 2),
+      latitude: this.state.exploreLatitude,
       latitudeDelta: 0.2729186541296684,
-      longitude:
-        this.state.exploreLongitude +
-        Math.random() * 10 * (this.state.region.longitudeDelta / 2),
+      longitude: this.state.exploreLongitude,
       longitudeDelta: 0.26148553937673924,
     };
     console.log("@inputRegion: ", inputRegion);
 
-    // this.setState({
-    //   region: inputRegion,
-    // });
-
-    return {
-      latitude:
-        this.state.exploreLatitude +
-        Math.random() * 10 * (this.state.region.latitudeDelta / 2),
-      longitude:
-        this.state.exploreLongitude +
-        Math.random() * 10 * (this.state.region.longitudeDelta / 2),
-    };
+    this.map.animateToRegion(inputRegion, 3000);
   }
-
-  animateExplore() {
-    // this.handleExplore();
-    this.map.animateToRegion(this.exploreRegion(), 2000);
-  }
-
-  exploreRegion() {
-    return {
-      ...this.state.region,
-      ...this.btnPressAnimate(),
-    };
-  }
-  onRegionChange(region) {
-    console.log(region);
-    this.setState({
-      region,
-    });
-  }
-
-  // handleExplore = () => {
-  //   const region = this.state.region;
-
-  //   let inputRegion = {
-  //     latitude:
-  //       this.state.exploreLatitude +
-  //       Math.random() * 10 * (this.state.region.latitudeDelta / 2),
-  //     latitudeDelta: 0.2729186541296684,
-  //     longitude:
-  //       this.state.exploreLongitude +
-  //       Math.random() * 10 * (this.state.region.longitudeDelta / 2),
-  //     longitudeDelta: 0.26148553937673924,
-  //   };
-
-  //   this.setState({
-  //     region: inputRegion,
-  //   });
-
-  //   console.log("current region", this.state.region);
-  // };
 
   onRegionChange(region) {
     this.setState({
       region,
     });
+    console.log(this.state.region);
   }
 
   render() {
@@ -169,22 +108,42 @@ export default class Challenge8Component extends Component {
             this.map = ref;
           }}
           region={this.state.region}
+          // onRegionChange={this.onRegionChange}
           onRegionChangeComplete={this.onRegionChange}
+          // onRegionChangeComplete={() => this.onRegionChange()}
           style={styles.map}
         />
 
-        {/* </MapView> */}
+        <View
+          style={{
+            position: "absolute", //use absolute position to show button on top of the map
+            top: "10%", //for center align
+            alignSelf: "center",
+          }}
+        >
+          <Text
+            style={{
+              color: "#aaa",
+              backgroundColor: "rgba(255, 255, 255, 0.7)",
+              marginBottom: "5%",
+            }}
+          >
+            My current position:
+          </Text>
+          <Text
+            style={{
+              color: "#aaa",
+              backgroundColor: "rgba(255, 255, 255, 0.7)",
+              marginBottom: "5%",
+            }}
+          >
+            {this.state.region.latitude}, {this.state.region.longitude}
+          </Text>
+        </View>
         <View
           style={{
             position: "absolute", //use absolute position to show button on top of the map
             top: "70%", //for center align
-            alignSelf: "center",
-          }}
-        ></View>
-        <View
-          style={{
-            position: "absolute", //use absolute position to show button on top of the map
-            top: "80%", //for center align
             alignSelf: "center",
           }}
         >
@@ -197,7 +156,6 @@ export default class Challenge8Component extends Component {
                   exploreLatitude: e,
                 },
                 console.log(e)
-                // this.handleExplore()
               )
             }
             value={this.state.input}
@@ -205,23 +163,20 @@ export default class Challenge8Component extends Component {
           <TextInput
             style={styles.input}
             placeholder={"🔍  Explore the longitude"}
-            onChangeText={
-              (e) =>
-                this.setState(
-                  {
-                    exploreLongitude: e,
-                  },
-                  console.log(e)
-                  // this.handleExplore()
-                )
-              // console.log("alala")
+            onChangeText={(e) =>
+              this.setState(
+                {
+                  exploreLongitude: e,
+                },
+                console.log(e)
+              )
             }
             value={this.state.input}
           />
           <Button
             style={{ fontSize: 20, color: "green" }}
             styleDisabled={{ color: "red" }}
-            onPress={this.btnPress.bind(this)}
+            onPress={() => this.btnPress()}
             title="My current Location"
           ></Button>
           <Button
@@ -246,8 +201,6 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
   },
   input: {
-    // paddingHorizontal: 2,
-    // paddingVertical: 5,
     marginBottom: "2%",
     borderBottomWidth: 1,
     borderBottomColor: "#ccc",

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Text, View, StyleSheet, Button } from "react-native";
-import MapView, { Overlay } from "react-native-maps";
+import MapView, { Marker } from "react-native-maps";
 import * as Permissions from "expo-permissions";
 import { TextInput } from "react-native-gesture-handler";
 
@@ -12,6 +12,8 @@ export default class Challenge8Component extends Component {
       latitude: "unknow",
       longitude: "unknow",
       locationPermission: "unknow",
+
+      currPosition: "",
 
       exploreLatitude: "unknow",
       exploreLongitude: "unknow",
@@ -24,7 +26,8 @@ export default class Challenge8Component extends Component {
       },
     };
 
-    this.onRegionChange = this.onRegionChange.bind(this);
+    this.onRegionChangeComplete = this.onRegionChangeComplete.bind(this);
+    // this.onRegionChange = this.onRegionChange.bind(this);
   }
 
   componentDidMount() {
@@ -38,6 +41,9 @@ export default class Challenge8Component extends Component {
             ", " +
             position.coords.longitude
         );
+        this.setState({
+          currPosition: position,
+        });
 
         this.setState({
           latitude: position.coords.latitude,
@@ -75,7 +81,6 @@ export default class Challenge8Component extends Component {
       longitude: this.state.longitude,
       longitudeDelta: 0.26148553937673924,
     };
-    // console.log("@newRegion", newRegion);
     console.log("@newRegion", newRegion);
 
     this.map.animateToRegion(newRegion, 3000);
@@ -93,12 +98,19 @@ export default class Challenge8Component extends Component {
     this.map.animateToRegion(inputRegion, 3000);
   }
 
-  onRegionChange(region) {
+  onRegionChangeComplete(region) {
     this.setState({
       region,
     });
     console.log(this.state.region);
   }
+
+  // onRegionChange(region) {
+  //   this.setState({
+  //     region,
+  //   });
+  //   console.log(this.state.region);
+  // }
 
   render() {
     return (
@@ -107,12 +119,20 @@ export default class Challenge8Component extends Component {
           ref={(ref) => {
             this.map = ref;
           }}
-          region={this.state.region}
+          // region={this.state.region}
+          initialRegion={this.state.region}
           // onRegionChange={this.onRegionChange}
-          onRegionChangeComplete={this.onRegionChange}
-          // onRegionChangeComplete={() => this.onRegionChange()}
+          onRegionChangeComplete={this.onRegionChangeComplete}
           style={styles.map}
-        />
+        >
+          <Marker
+            coordinate={{
+              latitude: this.state.region.latitude,
+              longitude: this.state.region.longitude,
+            }}
+            anchor={{ x: 0.5, y: 0.5 }}
+          />
+        </MapView>
 
         <View
           style={{

@@ -5,14 +5,23 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import "react-native-gesture-handler";
 
+import HomeScreen from "./challenges/challenge6/HomeScreen";
+import SecondScreen from "./challenges/challenge6/SecondScreen";
+import ThirdScreen from "./challenges/challenge6/ThirdScreen";
+import ModalScreen from "./challenges/challenge6/ModalScreen";
+
 import ImagePickerComponent from "./components/camera/ImagePickerComponent";
 import FlatListComponent from "./components/camera/FlatListComponent";
 import FetchComponent from "./components/camera/FetchComponent";
 import Challenge7Component from "./challenges/challenge7/Challenge7Component";
 
-import GPSComponent from "./components/gps/GPSComponent";
-import MapComponent from "./components/gps/MapComponent";
-import Challenge8Component from "./challenges/challenge8/Challenge8Component";
+// import GPSComponent from "./components/gps/GPSComponent";
+// import MapComponent from "./components/gps/MapComponent";
+// import Challenge8Component from "./challenges/challenge8/Challenge8Component";
+
+import Home from "./view/Home";
+import AddItem from "./view/AddItem";
+import ListItem from "./view/ListItem";
 
 // import Spring0 from "./spring/Spring0.js";
 // import Spring1 from "./spring/Spring1.js";
@@ -32,12 +41,12 @@ const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Challenge8Component />
-      {/* <MapComponent /> */}
-      {/* <FlatListComponent />
-      <FetchComponent /> */}
-    </View>
+    // <View style={styles.container}>
+    //   <Challenge8Component />
+    //   {/* <MapComponent /> */}
+    //   {/* <FlatListComponent />
+    //   <FetchComponent /> */}
+    // </View>
 
     // routing
     // <NavigationContainer>
@@ -52,13 +61,25 @@ export default function App() {
     //     <Stack.Screen name="Modal" component={ModalScreen} />
     //   </Stack.Navigator>
     // </NavigationContainer>
+
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={Home.navigationOptions}
+        />
+        <Stack.Screen name="AddItem" component={AddItem} />
+        <Stack.Screen name="ListItem" component={ListItem} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#ddd",
     alignItems: "center",
     justifyContent: "center",
   },

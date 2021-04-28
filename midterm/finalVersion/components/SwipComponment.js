@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     height: StyleSheet.hairlineWidth,
   },
   fromText: {
-    fontWeight: "bold",
+    fontWeight: "500",
     backgroundColor: "transparent",
   },
   messageText: {
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     right: 20,
     top: 10,
     color: "#999",
-    fontWeight: "bold",
+    fontWeight: "500",
   },
 });
 

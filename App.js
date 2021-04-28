@@ -23,6 +23,10 @@ import Home from "./view/Home";
 import AddItem from "./view/AddItem";
 import ListItem from "./view/ListItem";
 
+import HomePage from "./components/final/HomePage";
+import MapComponent from "./final/MapComponent";
+import DatabaseComponent from "./final/DatabaseComponent";
+
 // import Spring0 from "./spring/Spring0.js";
 // import Spring1 from "./spring/Spring1.js";
 // import Spring2 from "./spring/Spring2/Spring2.js";
@@ -65,12 +69,12 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Home"
-          component={Home}
-          options={Home.navigationOptions}
+          name="HomePage"
+          component={HomePage}
+          options={HomePage.navigationOptions}
         />
-        <Stack.Screen name="AddItem" component={AddItem} />
-        <Stack.Screen name="ListItem" component={ListItem} />
+        <Stack.Screen name="DatabaseComponent" component={DatabaseComponent} />
+        <Stack.Screen name="MapComponent" component={MapComponent} />
       </Stack.Navigator>
     </NavigationContainer>
   );

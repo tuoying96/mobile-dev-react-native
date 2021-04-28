@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   },
   itemtext: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontWeight: "500",
     textAlign: "center",
     backgroundColor: "#D6D0C6",
     borderWidth: 1,
